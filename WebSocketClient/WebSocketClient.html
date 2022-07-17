@@ -75,6 +75,7 @@
                 <td>Client</td>
                 <td>${htmlEscape(event.data)}</td>
                 </tr>`;
+            isConnId(event.data);
         };
 
         closeButton.onclick = function () {
@@ -98,6 +99,11 @@
                 </tr>`;
         }
 
+        function isConnId(str) {
+            if (str.substring(0,7) === "ConnID:") {
+                connID.innerHTML = "ConnID: " + str.substring(8, 45);
+            }
+        }
 
         function htmlEscape(str) {
             return str.toString()
